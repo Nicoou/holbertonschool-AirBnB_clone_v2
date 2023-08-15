@@ -31,8 +31,8 @@ def python_is_cool(text="is cool"):
 
 
 @app.route("/number/<int:n>", strict_slashes=False)
-def print_int(num):
-    return "{} is a number".format(num)
+def print_int(n):
+    return "{} is a number".format(n)
 
 
 if __name__ == "__main__":
