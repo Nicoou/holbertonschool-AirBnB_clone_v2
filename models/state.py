@@ -14,7 +14,8 @@ class State(BaseModel, Base):
 
     """ Si estás utilizando DBStorage, agrega la relación con la clase City """
     if os.getenv('HBNB_TYPE_STORAGE') == 'db':
-        cities = relationship("City", cascade="all, delete-orphan", backref="states")
+        cities = relationship("City", cascade="all, delete-orphan",
+                              backref="states")
     else:
         """ Si estás utilizando FileStorage,
         agrega el getter attribute para las ciudades """
@@ -23,6 +24,7 @@ class State(BaseModel, Base):
             """ Atributo getter que devuelve la lista de instancias de City
             con state_id igual al State.id actual """
             from models import storage
+            from models.city import City
             city_instances = storage.all(City)
 
             matching_cities = []
