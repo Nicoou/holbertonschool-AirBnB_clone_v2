@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Task 4 script that starts a Flask web application
+Task 6 script that starts a Flask web application
 """
 from flask import Flask, render_template
 
