@@ -78,3 +78,7 @@ class FileStorage:
                 del FileStorage.__objects[key]
                 # Delete the corresponding object from the dictionary.
                 self.save
+    
+    def close(self):
+        """deserealizes the JSON"""
+        self.reload()
