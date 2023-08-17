@@ -25,10 +25,9 @@ class State(BaseModel, Base):
             con state_id igual al State.id actual """
             from models import storage
             from models.city import City
-            city_instances = storage.all(City)
 
             matching_cities = []
-            for key in city_instances.values():
+            for key in storage.all(City).values():
                 if self.id == key.state_id:
-                    matching_cities.append(city_instances[key])
+                    matching_cities.append(storage.all(City)[key])
             return matching_cities
