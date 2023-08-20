@@ -10,9 +10,9 @@ app = Flask(__name__)
 app.teardown_appcontext
 
 
-def teardown_db(exeption):
+def teardown_db(exception):
     """remove the current SQLAlchemy"""
-    storage.close
+    storage.close()
 
 
 @app.route("/states_list", strict_slashes=False)
