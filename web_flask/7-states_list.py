@@ -2,13 +2,14 @@
 """ task 7 """
 from flask import Flask, render_template
 from models import storage
+from models.state import State
 
 
 app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def teardown_db(exception):
+def teardown_db(arg=None):
     """remove the current SQLAlchemy"""
     storage.close()
 
@@ -17,7 +18,7 @@ def teardown_db(exception):
 def states_list():
     """render states"""
     return render_template(
-        "7-states_list.html", states=storage.all("State").values()
+        "7-states_list.html", states=storage.all(State).values()
         )
 
 
